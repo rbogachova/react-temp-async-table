@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Address(props) {
+function AddressCell(props) {
     return (
-        <td scope="col">
+        <td>
             <div>Street: {props.user.address.street}</div>
             <div>Suite: {props.user.address.suite}</div>
             <div>City: {props.user.address.city}</div>
@@ -12,4 +12,4 @@ function Address(props) {
     );
 }
 
-export default Address;
+export default AddressCell;

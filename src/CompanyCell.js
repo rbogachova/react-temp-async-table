@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Company(props) {
+function CompanyCell(props) {
     return (
-        <td scope="col">
+        <td>
             <div>{props.user.company.name}</div>
         </td>
     );
 }
 
-export default Company;
+export default CompanyCell;

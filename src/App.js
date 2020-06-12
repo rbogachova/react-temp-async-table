@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import Name from "./Name";
-import Username from "./Username";
-import Email from "./Email";
-import Address from "./Address";
-import Phone from "./Phone";
-import Website from "./Website";
-import Company from "./Company";
+import NameCell from "./NameCell";
+import UsernameCell from "./UsernameCell";
+import EmailCell from "./EmailCell";
+import AddressCell from "./AddressCell";
+import PhoneCell from "./PhoneCell";
+import WebsiteCell from "./WebsiteCell";
+import CompanyCell from "./CompanyCell";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -25,6 +25,16 @@ function App() {
             .then((response) => {
                 setUsers(response.data);
             });
+    };
+
+    const saveEdited = (userId, updatedUser) => {
+        const updatedUsers = users.map(user => {
+            if (user.id === userId) {
+                return updatedUser
+            } else
+                return user;
+        });
+        setUsers(updatedUsers);
     };
 
     return (
@@ -58,13 +68,27 @@ function App() {
                     users.map(user =>
                         <tr key={user.id}>
                             <td>{user.id}</td>
-                            <Name user={user}/>
-                            <Username user={user}/>
-                            <Email user={user}/>
-                            <Address user={user}/>
-                            <Phone user={user}/>
-                            <Website user={user}/>
-                            <Company user={user}/>
+                            <NameCell columnName="name"
+                                      user={user}
+                                      saveEdited={saveEdited}/>
+                            <UsernameCell columnName="username"
+                                          user={user}
+                                          saveEdited={saveEdited}/>
+                            <EmailCell columnName="email"
+                                       user={user}
+                                       saveEdited={saveEdited}/>
+                            <AddressCell columnName="address"
+                                         user={user}
+                                         saveEdited={saveEdited}/>
+                            <PhoneCell columnName="phone"
+                                       user={user}
+                                       saveEdited={saveEdited}/>
+                            <WebsiteCell columnName="website"
+                                         user={user}
+                                         saveEdited={saveEdited}/>
+                            <CompanyCell columnName="company"
+                                         user={user}
+                                         saveEdited={saveEdited}/>
                         </tr>
                     )
                 }
