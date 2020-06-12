@@ -23,17 +23,17 @@ function EmailCell(props) {
             {
                 (!editModeEnabled)
                     ?
-                    <div>
+                    <div style={{ display: "flex" }}>
                         {props.user.email}
                         <button className="btn btn-sm float-right"
+                                style={{ marginLeft: "auto" }}
                                 onClick={onEditButtonClick}>
                             <i className="fa fa-pencil"/>
                         </button>
                     </div>
                     :
-                    <div>
+                    <div style={{ display: "flex" }}>
                         <input type="text"
-                               className="form-control"
                                value={email}
                                onChange={e => setEmail(e.target.value)}/>
                         <button className="btn btn-sm float-right"

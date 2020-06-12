@@ -23,17 +23,17 @@ function PhoneCell(props) {
             {
                 (!editModeEnabled)
                     ?
-                    <div>
+                    <div style={{ display: "flex" }}>
                         {props.user.phone}
                         <button className="btn btn-sm float-right"
+                                style={{ marginLeft: "auto" }}
                                 onClick={onEditButtonClick}>
                             <i className="fa fa-pencil"/>
                         </button>
                     </div>
                     :
-                    <div>
+                    <div style={{ display: "flex" }}>
                         <input type="text"
-                               className="form-control"
                                value={phone}
                                onChange={e => setPhone(e.target.value)}/>
                         <button className="btn btn-sm float-right"

@@ -23,17 +23,17 @@ function NameCell(props) {
             {
                 (!editModeEnabled)
                     ?
-                    <div>
+                    <div style={{display: "flex"}}>
                         {props.user.name}
                         <button className="btn btn-sm float-right"
+                                style={{marginLeft: "auto"}}
                                 onClick={onEditButtonClick}>
                             <i className="fa fa-pencil"/>
                         </button>
                     </div>
                     :
-                    <div>
+                    <div style={{display: "flex"}}>
                         <input type="text"
-                               className="form-control"
                                value={name}
                                onChange={e => setName(e.target.value)}/>
                         <button className="btn btn-sm float-right"

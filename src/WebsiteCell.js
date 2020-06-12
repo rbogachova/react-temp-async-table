@@ -23,17 +23,17 @@ function WebsiteCell(props) {
             {
                 (!editModeEnabled)
                     ?
-                    <div>
+                    <div style={{ display: "flex" }}>
                         <a href={props.user.website}>{props.user.website}</a>
                         <button className="btn btn-sm float-right"
+                                style={{ marginLeft: "auto" }}
                                 onClick={onEditButtonClick}>
                             <i className="fa fa-pencil"/>
                         </button>
                     </div>
                     :
-                    <div>
+                    <div style={{ display: "flex" }}>
                         <input type="text"
-                               className="form-control"
                                value={website}
                                onChange={e => setWebsite(e.target.value)}/>
                         <button className="btn btn-sm float-right"
